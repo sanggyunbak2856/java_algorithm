@@ -1,36 +1,23 @@
 package prac.Graph;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        ArrayList<ArrayList<Integer>> arrGraph = new ArrayList<ArrayList<Integer>>();
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Vertex 개수를 입력하세요.");
-        int vertex = sc.nextInt();
-        Graph graph = new Graph(arrGraph, vertex);
+        Graph adjacentListGraph = new AdjacentListGraph(4);
+        adjacentListGraph.add(1, 3);
+        adjacentListGraph.add(2, 4);
+        adjacentListGraph.add(3, 4);
 
-        while(true) {
-            System.out.println("[1] edge 입력");
-            System.out.println("[2] 출력");
-            int n = sc.nextInt();
-            if(n == 2) {
-                graph.draw();
-                break;
-            }
-            else if(n == 1) {
-                int from, to;
-                System.out.println("from, to");
-                from = sc.nextInt();
-                to = sc.nextInt();
-                graph.add(from, to);
-            }
-            else {
-                System.out.println("잘못 입력함");
-            }
-        }
+        adjacentListGraph.draw();
+        adjacentListGraph.BFS();
+        adjacentListGraph.DFS();
 
+        Graph adjacentMatrixGraph = new AdjacentMatrixGraph(5);
+        adjacentMatrixGraph.add(1, 2);
+        adjacentMatrixGraph.add(4, 2);
+        adjacentMatrixGraph.add(1, 2);
+        adjacentMatrixGraph.add(1, 3);
+        adjacentMatrixGraph.add(5, 2);
 
+        adjacentMatrixGraph.draw();
     }
 }
