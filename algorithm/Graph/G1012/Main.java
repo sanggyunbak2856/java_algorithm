@@ -14,16 +14,18 @@ public class Main{
     public static int count = 1; // count - 1
     public static int[] dx = {-1, 0, 1, 0};
     public static int[] dy = {0, -1, 0, 1};
+
+    public static boolean[][] check;
     public static void bfs(int x, int y) {
-        if(map[x][y] != 1) return;
-        count++;
+        if(map[x][y] == 0 || check[x][y]) return;
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[] {x, y});
+        count++;
 
         while(!queue.isEmpty()) {
             int[] p = queue.poll();
             int px = p[0]; int py = p[1];
-            map[px][py] = count; 
+            check[px][py] = true; 
 
             for(int i = 0; i < 4; i++) {
                 int newX = px + dx[i];
@@ -31,8 +33,9 @@ public class Main{
                 if(newX < 0 || newY < 0 || newX >= map.length || newY >= map[0].length) {
                     continue;
                 }
-                if(map[newX][newY] == 1) {
+                if(map[newX][newY] == 1 && !check[newX][newY]) {
                     queue.add(new int[] {newX, newY});
+                    map[newX][newY] = 0;
                 }
             }
         }
@@ -49,6 +52,7 @@ public class Main{
             int n = Integer.parseInt(st.nextToken()); // 세로
             int k = Integer.parseInt(st.nextToken()); // 배추 수
             map = new int[m][n]; // 지도
+            check = new boolean[m][n];
             for(int j = 0; j < k; j++) { // 지도 만들기
                 st = new StringTokenizer(br.readLine());
                 int x = Integer.parseInt(st.nextToken());
