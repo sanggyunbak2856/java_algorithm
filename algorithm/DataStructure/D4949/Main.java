@@ -35,8 +35,8 @@ public class Main {
             String str = br.readLine();
             if(str.equals(".")) break;
 
-            if(isBalancedString(str)) System.out.println("Yes");
-            else System.out.println("No");
+            if(isBalancedString(str)) System.out.println("yes");
+            else System.out.println("no");
         }
         br.close();
     }
