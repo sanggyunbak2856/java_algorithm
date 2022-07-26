@@ -25,6 +25,7 @@ public class Main {
                 int result = list.get(i);
                 if(visited[result] == false) {
                     q.add(result);
+                    visited[result] = true;
                 }
             }
         }
