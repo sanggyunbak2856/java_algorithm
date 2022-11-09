@@ -6,6 +6,55 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
+            "mainClass": "algorithm.swexpert.S2071.Solution",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
+            "mainClass": "algorithm.swexpert.S1954.Solution",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "algorithm.swexpert.S1954.Main",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
+            "mainClass": "algorithm.swexpert.S2027.Solution",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "algorithm.swexpert.S1206.S1204.Main",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "algorithm.Graph.G15591.Main",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "algorithm.Graph.G2644.Main",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
             "name": "Launch Main",
             "request": "launch",
             "mainClass": "algorithm.Graph.G15654.Main",
