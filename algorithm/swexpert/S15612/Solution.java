@@ -1,36 +1,50 @@
 package algorithm.swexpert.S15612;
 
 import java.util.Scanner;
-
+import java.util.Set;
+import java.util.HashSet;
 
 public class Solution {
-    static int[] arr;
-    static boolean isPossible() {
-        for(int i = 0; i < arr.length; i++) {
-            for(int j = 0; j < arr.length; j++) {
-                
-            }
-        }
-    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         int T = sc.nextInt();
 
         for(int test_case = 1; test_case <= T; test_case++) {
-            arr = new int[8];
-            int count = 0;
+            int countAll = 0;
+            boolean isPossible = true;
+            Set<Integer> set = new HashSet<>();
 
             for(int i = 0; i < 8; i++) {
-                String[] str = sc.next().split("");
+                String[] chars = sc.next().split("");
+                int countRow = 0;
                 for(int j = 0; j < 8; j++) {
-                    if(str[j].equals('O')) {
-                        arr[i] = j;
-                        count += 1;
+                    if(chars[j].equals("O")) {
+                        countAll+=1;
+                        countRow+=1;
+                        if(set.contains(i)) {
+                            isPossible = false;
+                            break;
+                        }
+                        else {
+                            set.add(i);
+                        }
+                    }
+                    if(countRow > 1) {
+                        isPossible = false;
+                        break;
                     }
                 }
-                if(count > 8) break;
+                if(countAll > 8) isPossible = false;
+                if(!isPossible) break;
             }
+            if(countAll != 8) isPossible = false;
+            StringBuilder sb = new StringBuilder("#");
+            sb.append(test_case).append(" ");
+            if(isPossible) sb.append("yes");
+            else sb.append("no");
+            
+            System.out.println(sb);
         }
     }
 }
