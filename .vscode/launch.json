@@ -8,6 +8,20 @@
             "type": "java",
             "name": "Launch Solution",
             "request": "launch",
+            "mainClass": "algorithm.swexpert.S1289.Solution",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
+            "mainClass": "algorithm.swexpert.S3752.Solution",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
             "mainClass": "algorithm.swexpert.S2819.Solution",
             "projectName": "java_algorithm_c297c69c"
         },
