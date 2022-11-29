@@ -8,6 +8,20 @@
             "type": "java",
             "name": "Launch Main",
             "request": "launch",
+            "mainClass": "algorithm.Implementation.I5430.Main",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "algorithm.dp.D11660.Main",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
             "mainClass": "algorithm.Implementation.I1966.Main",
             "projectName": "java_algorithm_c297c69c"
         },
