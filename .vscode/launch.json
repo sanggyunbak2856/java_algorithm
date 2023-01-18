@@ -8,6 +8,27 @@
             "type": "java",
             "name": "Launch Main",
             "request": "launch",
+            "mainClass": "algorithm.Graph.G7562.Main",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "algorithm.dp.D1699.Main",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "algorithm.bruteforce.B15663.Main",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
             "mainClass": "algorithm.bruteforce.B10819.Main",
             "projectName": "java_algorithm_c297c69c"
         },
