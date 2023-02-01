@@ -8,6 +8,34 @@
             "type": "java",
             "name": "Launch Main",
             "request": "launch",
+            "mainClass": "algorithm.Baekjun.B13023.Main",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "algorithm.Baekjun.B2470.Main",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "algorithm.Baekjun.B1003.Main",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "algorithm.Baekjun.B7894.Main",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
             "mainClass": "algorithm.Baekjun.B14500.Main",
             "projectName": "java_algorithm_c297c69c"
         },
