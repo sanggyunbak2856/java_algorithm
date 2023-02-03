@@ -20,12 +20,18 @@ public class Main {
             if(diff > 0) {
                 if(newdiff < 0) {
                     answer.append("mixed\n");
+                    diff = newdiff;
                     break;
                 }
+            }
+            else if(diff == 0) {
+                answer.append("mixed\n");
+                break;
             }
             else {
                 if(newdiff > 0) {
                     answer.append("mixed\n");
+                    diff = newdiff;
                     break;
                 }
             }
