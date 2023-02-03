@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Launch Main",
             "request": "launch",
+            "mainClass": "algorithm.Baekjun.B12852.Main",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
             "mainClass": "algorithm.Softeer.이미지프로세싱.Main",
             "projectName": "java_algorithm_c297c69c"
         },
