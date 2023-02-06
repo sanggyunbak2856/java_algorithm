@@ -21,6 +21,7 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         int m = Integer.parseInt(br.readLine());
         int[][] arr = new int[n][n];
+        int inf = 9999999;
 
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < n; j++) {
@@ -28,7 +29,7 @@ public class Main {
                     arr[i][j] = 0;
                     continue;
                 }
-                arr[i][j] = 100001;
+                arr[i][j] = inf;
             }
         }
 
@@ -44,7 +45,7 @@ public class Main {
 
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < n; j++) {
-                if(arr[i][j] == 100001) bw.write(0 + " ");
+                if(arr[i][j] == inf) bw.write(0 + " ");
                 else bw.write(arr[i][j] + " ");
             }
             bw.write("\n");
