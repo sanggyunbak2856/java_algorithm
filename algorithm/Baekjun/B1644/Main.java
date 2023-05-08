@@ -3,7 +3,7 @@ package algorithm.Baekjun.B1644;
 import java.io.*;
 
 public class Main {
-    static int calc(int n, boolean[] isPrime) {
+    static int calc(int n, boolean[] isPrime){
         int sum = 2;
         int left = 2;
         int right = 2;
@@ -12,6 +12,7 @@ public class Main {
         while(left <= right) {
             if(right > n) break;
             if(sum == n) {
+                if(left == 4000000 && right == 4000000) break;
                 count += 1;
                 right += 1;
                 if(right > 4000000) break;
