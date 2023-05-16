@@ -1,51 +1,46 @@
 package algorithm.swexpert.S1225;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
-
-import java.util.StringTokenizer;
-import java.util.Queue;
-import java.util.LinkedList;
+import java.util.*;
+import java.io.*;
 
 public class Solution {
-    static Queue<Integer> q;
-    static void makePassword() {
-        while(true) {
-            for(int i = 1; i <= 8; i++) {
-                int p = q.poll();
-                if(p - i < 0) {
-                    q.add(0);
-                    return;
-                }
-                else {
-                    q.add(p - i);
-                }
-            }
-
-        }
-    }
+    static BufferedReader br;
+    static BufferedWriter bw;
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        br = new BufferedReader(new InputStreamReader(System.in));
+        bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        for(int test_case = 1; test_case <= 10; test_case++) {
-            int t = Integer.parseInt(br.readLine());
-            q = new LinkedList<>();
+        for(int test = 0; test < 10; test++) {
+            int n = Integer.parseInt(br.readLine());
             StringTokenizer st = new StringTokenizer(br.readLine());
+            Queue<Integer> q = new LinkedList<>();
             for(int i = 0; i < 8; i++) {
-                q.add(Integer.parseInt(st.nextToken()));
+                int a = Integer.parseInt(st.nextToken());
+                q.add(a);
             }
 
-            makePassword();
-            StringBuilder sb = new StringBuilder("#");
-            sb.append(t).append(" ");
-            for(int i = 0; i < 8; i++) {
-                sb.append(q.poll()).append(" ");
+            int minus = 1;
+            while(true) {
+                int p = q.poll();
+                p -= minus; 
+                if(p <= 0) {
+                    p = 0;
+                    q.add(p);
+                    break;
+                }
+                q.add(p);
+                minus += 1;
+                if(minus == 6) minus = 1;
             }
-            System.out.println(sb.toString());
 
+            bw.write("#" + n + " ");
+            for(int i = 0; i < 8; i++) {
+                bw.write(q.poll() + " ");
+            }
+            bw.write("\n");
+            bw.flush();
         }
-
         br.close();
+        bw.close();
     }
 }
