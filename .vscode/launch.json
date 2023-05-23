@@ -8,6 +8,27 @@
             "type": "java",
             "name": "Solution",
             "request": "launch",
+            "mainClass": "algorithm.swexpert.p1.Solution",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Solution",
+            "request": "launch",
+            "mainClass": "algorithm.swexpert.S8016.Solution",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Solution",
+            "request": "launch",
+            "mainClass": "algorithm.swexpert.p2.Solution",
+            "projectName": "java_algorithm_c297c69c"
+        },
+        {
+            "type": "java",
+            "name": "Solution",
+            "request": "launch",
             "mainClass": "algorithm.swexpert.S7272.Solution",
             "projectName": "java_algorithm_c297c69c"
         },

@@ -1,50 +1,53 @@
 package algorithm.swexpert.S15612;
 
-import java.util.Scanner;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.*;
+import java.io.*;
 
 public class Solution {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    static BufferedReader br;
+    static BufferedWriter bw;
+    public static void main(String[] strs) throws IOException {
+        br = new BufferedReader(new InputStreamReader(System.in));
+        bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int T = sc.nextInt();
+        int test = Integer.parseInt(br.readLine());
+        for(int i = 0; i < test; i++) {
+            char[][] map = new char[8][8];
+            List<Integer[]> rooks = new LinkedList<>();
+            for(int j = 0; j < 8; j++) {
+                char[] chars = br.readLine().toCharArray();
+                for(int k = 0; k < 8; k++) {
+                    map[j][k] = chars[k];
+                    if(chars[k] == 'O') rooks.add(new Integer[] {j, k});
+                }
+            }
 
-        for(int test_case = 1; test_case <= T; test_case++) {
-            int countAll = 0;
-            boolean isPossible = true;
-            Set<Integer> set = new HashSet<>();
+            if(rooks.size() != 8) {
+                bw.write("#" + (i + 1) + " no\n");
+                bw.flush();
+                continue;
+            }
 
-            for(int i = 0; i < 8; i++) {
-                String[] chars = sc.next().split("");
-                int countRow = 0;
+            boolean possible = true;
+            for(Integer[] rook : rooks) {
                 for(int j = 0; j < 8; j++) {
-                    if(chars[j].equals("O")) {
-                        countAll+=1;
-                        countRow+=1;
-                        if(set.contains(i)) {
-                            isPossible = false;
-                            break;
-                        }
-                        else {
-                            set.add(i);
-                        }
+                    if(map[rook[0]][j] == 'O' && j != rook[1]) {
+                        possible = false;
+                        break;
                     }
-                    if(countRow > 1) {
-                        isPossible = false;
+                    if(map[j][rook[1]] == 'O' && j != rook[0]) {
+                        possible = false;
                         break;
                     }
                 }
-                if(countAll > 8) isPossible = false;
-                if(!isPossible) break;
+                if(!possible) break;
             }
-            if(countAll != 8) isPossible = false;
-            StringBuilder sb = new StringBuilder("#");
-            sb.append(test_case).append(" ");
-            if(isPossible) sb.append("yes");
-            else sb.append("no");
-            
-            System.out.println(sb);
+            if(possible) bw.write("#" + (i + 1) + " yes\n");
+            else bw.write("#" + (i + 1) + " no\n");
+            bw.flush();
         }
+
+        br.close();
+        bw.close();
     }
 }
