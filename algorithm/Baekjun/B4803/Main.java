@@ -6,21 +6,19 @@ import java.io.*;
 public class Main {
     static BufferedReader br;
     static BufferedWriter bw;
-    static int find(int[] parent, int x) {
-        if(parent[x] == x) return x;
-        else return parent[x] = find(parent, parent[x]);
+    static int find(int[] parent, int a) {
+        if(parent[a] == a) return a;
+        else return parent[a] = find(parent, parent[a]);
     }
-    static void union(int[] parent, int x, int y) {
-        int xRoot = find(parent, x);
-        int yRoot = find(parent, y);
-        if(xRoot < yRoot) parent[yRoot] = xRoot;
-        else parent[xRoot] = yRoot;
+    static void union(int[] parent, int a, int b) {
+        int aRoot = find(parent, a);
+        int bRoot = find(parent, b);
 
-        find(parent, y);
-        find(parent, x);
+        if(aRoot <= bRoot) parent[bRoot] = aRoot;
+        else parent[aRoot] = bRoot;
     }
-    static boolean isUnion(int[] parent, int x, int y) {
-        return find(parent, x) == find(parent, y);
+    static boolean isUnion(int[] parent, int a, int b) {
+        return find(parent, a) == find(parent, b);
     }
     public static void main(String[] args) throws IOException {
         br = new BufferedReader(new InputStreamReader(System.in));
@@ -33,48 +31,56 @@ public class Main {
             int m = Integer.parseInt(st.nextToken());
             if(n == 0 && m == 0) break;
             int[] parent = new int[n + 1];
-            boolean[] isCycle = new boolean[n + 1];
-            for(int i = 0; i < n + 1; i++) {
+            for(int i = 0; i <= n; i++) {
                 parent[i] = i;
             }
 
             Set<Integer> cycleSet = new HashSet<>();
-            Set<Integer> cycleChildSet = new HashSet<>();
-            for(int i = 0; i < m; i++) {
+            Set<String> edgeSet = new HashSet<>();
+            for (int i = 0; i < m; i++) {
                 st = new StringTokenizer(br.readLine());
                 int x = Integer.parseInt(st.nextToken());
                 int y = Integer.parseInt(st.nextToken());
 
-                if(!isUnion(parent, x, y)) union(parent, x, y);
+                int[] edge = new int[2];
+                if (x <= y) {
+                    edge[0] = x;
+                    edge[1] = y;
+                } else {
+                    edge[0] = y;
+                    edge[1] = x;
+                }
+
+                String edgeString = Arrays.toString(edge);
+
+                if (edgeSet.contains(edgeString)) {
+                    continue; // 이미 존재하는 간선이므로 무시합니다.
+                } else {
+                    edgeSet.add(edgeString); // 간선을 추가합니다.
+                }
+
+                if(isUnion(parent, x, y)) {
+                    cycleSet.add(find(parent, x));
+                }
                 else {
                     union(parent, x, y);
-                    cycleChildSet.add(x);
-                    cycleChildSet.add(y);
                 }
             }
 
-            for(Integer i : cycleChildSet) {
-                cycleSet.add(parent[i]);
+            Set<Integer> treeSet = new HashSet<>();
+            for(int i = 1; i < parent.length; i++) {
+                int root = find(parent, i);
+                if(cycleSet.contains(root)) continue;
+                treeSet.add(root);
             }
 
-            Set<Integer> notCycleSet = new HashSet<>();
-            for(int i = 1; i < parent.length; i++) {
-                if(cycleSet.contains(parent[i])) isCycle[i] = true;
-                else notCycleSet.add(parent[i]);
-            }
-            if(notCycleSet.size() == 0) {
-                bw.write("Case " + idx + ": No trees.\n");
-            }
-            else if(notCycleSet.size() == 1) {
-                bw.write("Case " + idx + ": There is one tree.\n");
-            }
-            else {
-                bw.write("Case " + idx + ": A forest of " + notCycleSet.size() + " trees.\n");
-            }
-            bw.flush();
-            idx += 1;
+            if(treeSet.size() == 0) bw.write("Case " + idx + ": No trees.\n");
+            else if(treeSet.size() == 1) bw.write("Case " + idx + ": There is one tree.\n");
+            else bw.write("Case " + idx + ": A forest of " + treeSet.size() + " trees" +  ".\n");
+            idx++;
         }
 
+        bw.flush();
         br.close();
         bw.close();
     }
